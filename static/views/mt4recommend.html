@@ -1,0 +1,151 @@
+<div class="row">
+    <div class="col-xs-12">
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <ol class="breadcrumb">
+                        <li><a href="#" ui-sref="home">首页</a></li>
+                        <li class="active">MT4管理</li>
+                        <li class="active">推荐MT4</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading" data-toggle="collapse"
+                     data-parent="#accordion"
+                     data-target="#collapseOne">
+                    <h4 class="panel-title">
+                        <a href="javascript:" class="text-warning">
+                            管理推荐MT4
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label">用户名</label>
+
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" value="" ng-model="name"/>
+                                </div>
+
+                                <div class="col-sm-2">
+                                    <input type="button" ng-click="dosearch()" class="btn btn-primary" value="提交"/>
+                                </div>
+                            </div>
+                        </form>
+                        <br/>
+                    </div>
+
+
+                    <div class="panel-body">
+                        <div style="min-height:{{ win_h }}px;">
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th>用户名</th>
+                                    <th>昵称</th>
+                                    <th>MT4ID</th>
+                                    <th>加入推荐</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="u in mt4">
+                                    <td>{{ u.name }}</td>
+                                    <td>{{ u.nickname }}</td>
+                                    <td>{{ u.mt4id }}</td>
+                                    <td><input type="button" ng-click="doadd(u)" class="btn btn-primary" value="添加"/>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- paging -->
+                        <pagination
+                                total-items="totalItems"
+                                ng-model="currentPage"
+                                max-size="maxSize"
+                                items-per-page="size"
+                                ng-change="pageChanged()"
+                                boundary-link-numbers="true"
+                                boundary-links="true"
+                                previous-text="上一页"
+                                next-text="下一页"
+                                first-text="首页"
+                                last-text="尾页"
+                                >
+                        </pagination>
+                        <br/>
+                        <br/>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="panel panel-default">
+                <div class="panel-heading" data-toggle="collapse"
+                     data-parent="#accordion"
+                     data-target="#collapseTwo">
+                    <h4 class="panel-title">
+                        <a href="javascript:" class="text-warning">
+                            已有推荐MT4列表
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <div style="min-height:{{ win_h }}px;">
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th>类型</th>
+                                    <th>MT4账号</th>
+                                    <th>经济商</th>
+                                    <th>交易天数</th>
+                                    <th>总收益率(%)</th>
+                                    <th>盈亏金额($)</th>
+                                    <th>状态</th>
+                                    <th>策略管理</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="mt4 in mt4recommend">
+                                    <td>{{ mt4.ACCOUNTTYPE }}</td>
+                                    <td>{{ mt4.ACCOUNT }}</td>
+                                    <td>{{ mt4.SHOWNAME }}</td>
+                                    <td>{{ mt4.DAYS }}</td>
+                                    <td>{{ mt4.C }}</td>
+                                    <td>{{ mt4.PROFIT }}</td>
+                                    <td>{{ mt4.STATUS }}</td>
+                                    <td>操作</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- paging -->
+                        <pagination
+                                total-items="retotalItems"
+                                ng-model="recurrentPage"
+                                max-size="remaxSize"
+                                items-per-page="resize"
+                                ng-change="repageChanged()"
+                                boundary-link-numbers="true"
+                                boundary-links="true"
+                                previous-text="上一页"
+                                next-text="下一页"
+                                first-text="首页"
+                                last-text="尾页"
+                                >
+                        </pagination>
+                        <br/>
+                        <br/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

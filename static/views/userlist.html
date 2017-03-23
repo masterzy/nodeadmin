@@ -1,0 +1,56 @@
+<div class="row" style="height:400px;">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <ol class="breadcrumb">
+                <li><a href="#" ui-sref="home">首页</a></li>
+                <li class="active">用户列表</li>
+            </ol>
+            <a class="btn btn-success" data-url="user/add" t="添加用户" w="50%" h="220px" ng-click="addHtmlDialog($event)">
+                <i class="fa fa-plus "> </i>
+                添加用户
+            </a>
+        </div>
+        <div class="panel-body">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>用户名</th>
+                    <th>昵称</th>
+                    <th>手机</th>
+                    <th>创建日期</th>
+                    <th>奇傲币</th>
+                    <th>奖金</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="u in users">
+                    <td><a ui-sref="home.userdetail({id: u.id })">{{u.name}}</a></td>
+                    <td>{{u.nickname}}</td>
+                    <td>{{u.tel}}</td>
+                    <td>{{u.createtime}}</td>
+                    <td>{{u.qiaomoney}}</td>
+                    <td>{{u.money}}</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <!-- paging -->
+            <pagination
+                    total-items="totalItems"
+                    ng-model="currentPage"
+                    max-size="maxSize"
+                    items-per-page="size"
+                    ng-change="pageChanged()"
+                    boundary-link-numbers="true"
+                    boundary-links="true"
+                    previous-text="上一页"
+                    next-text="下一页"
+                    first-text="首页"
+                    last-text="尾页"
+                    >
+            </pagination>
+            <br/>
+            <br/>
+        </div>
+    </div>
+</div>

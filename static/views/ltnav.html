@@ -1,0 +1,82 @@
+<link href="/static/css/jquery-accordion-menu.css" rel="stylesheet" type="text/css"/>
+<style type="text/css">
+    * {
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+    }
+
+    .menu-content {
+        #width: 250px;
+        position: relative;
+        box-sizing: border-box;
+        height: 100%;
+    }
+
+    #menu-list a {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 100%;
+    }
+    .jquery-accordion-menu{
+        width:100%;
+    }
+</style>
+<script src="/static/js/jquery-accordion-menu.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#jquery-accordion-menu").jqueryAccordionMenu();
+        $("#menu-list li").click(function () {
+            $("#menu-list li.active").removeClass("active");
+            $(this).addClass("active");
+        });
+    })
+</script>
+
+
+<div class="menu-content">
+    <div id="jquery-accordion-menu" class="jquery-accordion-menu red">
+        <div class="jquery-accordion-menu-header" id="form"></div>
+        <ul id="menu-list">
+            <li><a href="#">用户管理 </a>
+                <ul class="submenu">
+                    <li><a href="#" ui-sref="home.userlist">用户列表 </a>
+                        <span class="jquery-accordion-menu-label">{{nav.users}} </span>
+                    </li>
+                </ul>
+            </li>
+
+            <li><a href="#">课程管理 </a>
+                <ul class="submenu">
+                    <li><a href="#" ui-sref="home.livecourse">直播课程 </a>
+                        <span class="jquery-accordion-menu-label">{{nav.lives}} </span>
+                    </li>
+                    <li><a href="#" ui-sref="home.hiscourse">历史课程 </a>
+                        <span class="jquery-accordion-menu-label">{{nav.hiss}} </span>
+                    </li>
+                </ul>
+            </li>
+
+            <li><a href="#">Mt4管理 </a>
+                <ul class="submenu">
+                    <li><a href="#" ui-sref="home.mt4recommend">推荐Mt4列表 </a></li>
+                    <li><a href="#" ui-sref="home.mt4list">Mt4列表 </a></li>
+                    <li><a href="#" ui-sref="home.mt4han">喊单Mt4 </a></li>
+                    <li><a href="#" ui-sref="home.mt4gen">跟单Mt4 </a></li>
+                </ul>
+            </li>
+
+
+            <li><a href="#">系统管理 </a>
+                <ul class="submenu">
+                    <li><a href="#" ui-sref="home.chongzhiauto">充值自动 </a></li>
+                    <li><a href="#" ui-sref="home.chongzhimanual">充值手动 </a></li>
+                    <li><a href="#" ui-sref="home.mt4gen">提现 </a></li>
+                </ul>
+            </li>
+        </ul>
+        <div class="jquery-accordion-menu-footer" id="form1"></div>
+    </div>
+</div>

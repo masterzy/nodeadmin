@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <ol class="breadcrumb">
+                    <li><a href="#" ui-sref="home">首页</a></li>
+                    <li class="active">基本信息</li>
+                </ol>
+                <a class="btn btn-primary" href="#" ui-sref="home.adminedit" role="button">编辑用户</a>
+            </div>
+            <div class="panel-body">
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">用户名</label>
+
+                        <div class="col-sm-4">
+                            <input type="text" disabled class="form-control" value="{{ admin.name }}"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">密码</label>
+
+                        <div class="col-sm-4">
+                            <input type="password" disabled class="form-control" value="{{ admin.password }}"/>
+                        </div>
+                    </div>
+                </form>
+                <br/>
+                <br/>
+            </div>
+        </div>
+    </div>
+</div>

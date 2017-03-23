@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>CMS</title>
+    <!-- Custom Theme files -->
+    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.md5.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.cookie.js"></script>
+
+    <link href="/static/css/login.css" rel="stylesheet" type="text/css" media="all"/>
+    <!-- Custom Theme files -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Login"/>
+
+    <script>
+        $(function(){
+            var flag = $.cookie('cms');
+            if(flag == 'true'){
+                var tmp = {
+                    'username': $.cookie('cmsuser'),
+                    'userpwd': $.cookie('cmsupwd')
+                };
+
+                $('#uname').val(tmp.username);
+                $('#upwd').val(tmp.userpwd);
+
+                setTimeout(function(){
+                    login(tmp)
+                },1500);
+            }
+
+            $('#loginbtn').click(function(){
+                var tmp = {
+                    'username': $('#uname').val(),
+                    'userpwd': $.md5($('#upwd').val())
+                };
+
+                login(tmp);
+            });
+
+            function login(para){
+                $.ajax({
+                    url:'/cms/login',
+                    type:'POST',
+                    data:JSON.stringify(para),
+                    contentType: "application/json; charset=utf-8",
+                    dataType:'json'
+                }).then(function(data){
+                    if($.isEmptyObject(data)){
+                        alert("登录失败！");
+                        $.cookie('cms', 'false', {expires: 1, path: '/' });
+                    }else{
+                        $.cookie('cmsuser', data.name, {expires: 1, path: '/' });
+                        $.cookie('cmsupwd', data.password, {expires: 1, path: '/' });
+                        $.cookie('cms', 'true', {expires: 1, path: '/' });
+                        window.location.href = '/cms/main';
+                    }
+                },function(){
+                    alert("登录失败！");
+                    $.cookie('cms', 'false', {expires: 1, path: '/' });
+                })
+            }
+        })
+    </script>
+</head>
+<body>
+<div class="login">
+    <h2>CMS</h2>
+
+    <div class="login-top">
+        <h1>管理员</h1>
+
+        <form id="loginform">
+            <input id='uname' type="text" value="用户名" onfocus="this.value = '';">
+            <input id='upwd' type="password" value="password" onfocus="this.value = '';">
+        </form>
+        <div class="forgot">
+            <a href="#">忘记密码？</a>
+            <input id="loginbtn" type="button" value="登录">
+        </div>
+    </div>
+    <div class="login-bottom">
+        <h3>用户 &nbsp;<a href="#">注册?</a>&nbsp 点这里</h3>
+    </div>
+</div>
+<div class="copyright">
+    <p>Copyright &copy; 2016. All rights reserved.<a href="">#</a></p>
+</div>
+
+
+</body>
+</html>

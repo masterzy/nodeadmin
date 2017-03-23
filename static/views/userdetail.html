@@ -1,0 +1,275 @@
+<div class="row">
+    <div class="col-xs-12">
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <ol class="breadcrumb">
+                        <li><a href="#" ui-sref="home">首页</a></li>
+                        <li><a href="#" ui-sref="home.userlist">用户列表</a></li>
+                        <li class="active">用户详情</li>
+                    </ol>
+                    <a class="btn btn-primary" href="#" ui-sref="home.useredit({id: user.id })" role="button">
+                        <i class="fa fa-edit "> </i>
+                        编辑用户
+                    </a>
+                    <a class="btn btn-danger" href="JavaScript:history.back(-1)">
+                        <i class="fa fa-arrow-circle-left "> </i>
+                        返回
+                    </a>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading" data-toggle="collapse"
+                     data-parent="#accordion"
+                     data-target="#collapseOne">
+                    <h4 class="panel-title">
+                        <a href="javascript:" class="text-warning">
+                            用户信息
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">用户ID</label>
+
+                                <div class="col-sm-4">
+                                    <input type="text" disabled class="form-control" value="{{ user.id }}"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">用户名</label>
+
+                                <div class="col-sm-4">
+                                    <input type="text" disabled class="form-control" value="{{ user.name }}"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">昵称</label>
+
+                                <div class="col-sm-4">
+                                    <input type="text" disabled class="form-control" value="{{ user.nickname }}"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">手机</label>
+
+                                <div class="col-sm-4">
+                                    <input type="text" disabled class="form-control" value="{{ user.tel }}"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">创建日期</label>
+
+                                <div class="col-sm-4">
+                                    <input type="text" disabled class="form-control" value="{{ user.createtime }}"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">奇傲币余额</label>
+
+                                <div class="col-sm-4">
+                                    <input type="text" disabled class="form-control" value="{{ user.qiaomoney }}"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">奖金余额</label>
+
+                                <div class="col-sm-4">
+                                    <input type="text" disabled class="form-control" value="{{ user.money }}"/>
+                                </div>
+                            </div>
+                        </form>
+                        <br/>
+                        <br/>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="panel panel-default">
+                <div class="panel-heading" data-toggle="collapse"
+                     data-parent="#accordion"
+                     data-target="#collapseTwo">
+                    <h4 class="panel-title">
+                        <a href="javascript:;" class="text-warning">
+                            用户MT4信息
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>类型</th>
+                                <th>MT4账号</th>
+                                <th>经济商</th>
+                                <th>交易天数</th>
+                                <th>总收益率(%)</th>
+                                <th>盈亏金额($)</th>
+                                <th>状态</th>
+                                <th>策略管理</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="mt4 in mt4strategy">
+                                <td>{{ mt4.ACCOUNTTYPE }}</td>
+                                <td>{{ mt4.ACCOUNT }}</td>
+                                <td>{{ mt4.SHOWNAME }}</td>
+                                <td>{{ mt4.DAYS }}</td>
+                                <td>{{ mt4.C }}</td>
+                                <td>{{ mt4.PROFIT }}</td>
+                                <td>{{ mt4.STATUS }}</td>
+                                <td>操作</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <br/>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="panel panel-default">
+                <div class="panel-heading" data-toggle="collapse"
+                     data-parent="#accordion"
+                     data-target="#collapseThree">
+                    <h4 class="panel-title">
+                        <a href="javascript:;" class="text-warning">
+                            冻结用户MT4
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseThree" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">用户ID</label>
+
+                                <div class="col-sm-4">
+                                    <input type="text" disabled class="form-control" value="{{ user.id }}"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">用户名</label>
+
+                                <div class="col-sm-4">
+                                    <input type="text" disabled class="form-control" value="{{ user.name }}"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">昵称</label>
+
+                                <div class="col-sm-4">
+                                    <input type="text" disabled class="form-control" value="{{ user.nickname }}"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">手机</label>
+
+                                <div class="col-sm-4">
+                                    <input type="text" disabled class="form-control" value="{{ user.tel }}"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">创建日期</label>
+
+                                <div class="col-sm-4">
+                                    <input type="text" disabled class="form-control" value="{{ user.createtime }}"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">奇傲币余额</label>
+
+                                <div class="col-sm-4">
+                                    <input type="text" disabled class="form-control" value="{{ user.qiaomoney }}"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">奖金余额</label>
+
+                                <div class="col-sm-4">
+                                    <input type="text" disabled class="form-control" value="{{ user.money }}"/>
+                                </div>
+                            </div>
+                        </form>
+                        <br/>
+                        <br/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading" data-toggle="collapse"
+                     data-parent="#accordion"
+                     data-target="#collapseFour">
+                    <h4 class="panel-title">
+                        <a href="javascript:;" class="text-warning">
+                            用户备注
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseFour" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">用户ID</label>
+
+                                <div class="col-sm-4">
+                                    <input type="text" disabled class="form-control" value="{{ user.id }}"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">用户名</label>
+
+                                <div class="col-sm-4">
+                                    <input type="text" disabled class="form-control" value="{{ user.name }}"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">昵称</label>
+
+                                <div class="col-sm-4">
+                                    <input type="text" disabled class="form-control" value="{{ user.nickname }}"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">手机</label>
+
+                                <div class="col-sm-4">
+                                    <input type="text" disabled class="form-control" value="{{ user.tel }}"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">创建日期</label>
+
+                                <div class="col-sm-4">
+                                    <input type="text" disabled class="form-control" value="{{ user.createtime }}"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">奇傲币余额</label>
+
+                                <div class="col-sm-4">
+                                    <input type="text" disabled class="form-control" value="{{ user.qiaomoney }}"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">奖金余额</label>
+
+                                <div class="col-sm-4">
+                                    <input type="text" disabled class="form-control" value="{{ user.money }}"/>
+                                </div>
+                            </div>
+                        </form>
+                        <br/>
+                        <br/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

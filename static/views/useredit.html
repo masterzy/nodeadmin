@@ -1,0 +1,81 @@
+<div class="row">
+    <div class="col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <ol class="breadcrumb">
+                    <li><a href="#" ui-sref="home">首页</a></li>
+                    <li><a href="#" ui-sref="home.userlist">用户列表</a></li>
+                    <li><a href="#" ui-sref="home.userdetail({id: user.id })">用户详情</a></li>
+                    <li class="active">编辑</li>
+                </ol>
+                <a class="btn btn-danger" href="JavaScript:history.back(-1)">
+                    <i class="fa fa-arrow-circle-left "> </i>
+                    返回
+                </a>
+            </div>
+            <div class="panel-body">
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">用户ID</label>
+
+                        <div class="col-sm-4">
+                            <input type="text" disabled class="form-control" value="{{ user.id }}"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">用户名</label>
+
+                        <div class="col-sm-4">
+                            <input type="text" disabled class="form-control" value="{{ user.name }}"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">昵称</label>
+
+                        <div class="col-sm-4">
+                            <input type="text" disabled class="form-control" value="{{ user.nickname }}"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">手机</label>
+
+                        <div class="col-sm-4">
+                            <input type="text" disabled class="form-control" value="{{ user.tel }}"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">创建日期</label>
+
+                        <div class="col-sm-4">
+                            <input type="text" disabled class="form-control" value="{{ user.createtime }}"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">奇傲币余额</label>
+
+                        <div class="col-sm-4">
+                            <input type="text" disabled class="form-control" value="{{ user.qiaomoney }}"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">奖金余额</label>
+
+                        <div class="col-sm-4">
+                            <input type="text" disabled class="form-control" value="{{ user.money }}"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputPassword" class="col-sm-2 control-label">密码</label>
+
+                        <div class="col-sm-4">
+                            <input type="password" class="form-control" id="inputPassword" placeholder="请输入密码">
+                        </div>
+                    </div>
+                </form>
+                <br/>
+                <br/>
+            </div>
+        </div>
+    </div>
+</div>
